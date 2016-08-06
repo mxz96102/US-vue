@@ -7,10 +7,10 @@
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        性别：男<input type="radio" name="gender" value="male"> 女<input type="radio" name="gender" value="female"  required="required">
+        性别：<br /><input type="radio" name="gender" value="male">男 <br /><input type="radio" name="gender" value="female"  required="required">女
       </div>
       <div class="input">
-        宿舍：韵苑<input type="radio" name="live" value="yy"  required="required"> 紫菘<input type="radio" name="live" value="zs"> 沁苑<input type="radio" name="live" value="qy">
+        宿舍：<br /><input type="radio" name="live" value="yy"  required="required">韵苑 <br /><input type="radio" name="live" value="zs">紫菘 <br /><input type="radio" name="live" value="qy">沁苑
       </div>
       <div class="input">
         <input class="input__input" type="text" name='info' placeholder="院系-专业-年级"  required="required">
@@ -26,11 +26,14 @@
       </div>
       <div class="input">
         报名组别：<br />
-        Web<input type="radio" name="group" value="0"  required="required"> Android<input type="radio" name="group" value="1"><br />
-        Lab<input type="radio" name="group" value="2">PM<input type="radio" name="group" value="3"><br />
-        Design<input type="radio" name="group" value="4"> iOS<input type="radio" name="group" value="5"><br />
-        Game<input type="radio" name="group" value="6">
-      </div>
+        <input type="radio" name="group" value="0"  required="required">Web<br /> <input type="radio" name="group" value="1">Android<br />
+        <input type="radio" name="group" value="2">Lab<br /><input type="radio" name="group" value="3">PM<br />
+        <input type="radio" name="group" value="4">Design<br /><input type="radio" name="group" value="5">iOS<br />
+        <input type="radio" name="group" value="6">Game策划<br /><input type="radio" name="group" value="6">Game程序
+      </div><br />
+      自我介绍：<br />
+      <textarea class="input__input"></textarea>
+
       <button class="input__input" onclick="return false">提交</button>
     </form>
   </div>
@@ -48,6 +51,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .join{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   h1{
     color: #00ffb8;
     font-weight: lighter;
@@ -63,9 +71,10 @@ export default {
   input[type=radio]{
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 10px;
   }
 
-  button,.input {
+  button,.input,textarea {
     width: 250px;
     margin-top: 20px;
   }
@@ -77,14 +86,14 @@ export default {
     padding: 0.5em 0.6em;
     line-height: 1.4;
     -webkit-appearance: none;
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
-    border-left: 3px solid #50c56c;
-    border-right: 3px solid #4ec4ce;
+    border-left: 2px solid #50c56c;
+    border-right: 2px solid #4ec4ce;
     background-position: 0 0, 0 100%;
-    background-size: 100% 3px;
+    background-size: 100% 2px;
     background-color: transparent;
     color: white;
   }
@@ -109,10 +118,11 @@ export default {
     opacity: 0;
     top: 0;
     left: 0;
-    width: 286px;
+    width: 276px;
     height: 43px;
     margin-top: -43px;
     background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
     transition: all 0.3s ease-out;
+    border-radius: 5px;
   }
 </style>

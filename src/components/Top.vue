@@ -1,7 +1,7 @@
 <template>
   <div class="Top">
     <div>
-      <img class="top-logo" src="../assets/logo.png" /><div class="top-name">联创团队</div>
+      <a><img v-link="{name:'index'}" class="top-logo" src="../assets/logo.png" /><div class="top-name">联创团队</div></a>
     </div>
     <div class="top-menu">
       <div class="top-menu">
@@ -14,6 +14,7 @@
           <li><a v-link="{name:'group',params: { name : 'web' }}">组别</a></li>
           <li><a v-link="{name:'memo'}">大事记</a></li>
           <li><a v-link="{name:'work'}">作品</a></li>
+          <li><a v-link="{name:'contact'}">联系我们</a></li>
           <li><a v-link="{name:'join'}">加入我们</a></li>
         </ul>
       </div>

@@ -95,6 +95,9 @@
     font-weight: lighter;
     margin-top: 50px;
   }
+  .work{
+    margin-top: 30px;
+  }
   .work-icon{
     width: 100vw;
   }

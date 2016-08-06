@@ -11,6 +11,7 @@
         <li><a v-link="{name:'group',params: { name : 'web' }}"><div class="index-menu-list">组别</div></a></li>
         <li><a v-link="{name:'memo'}"><div class="index-menu-list">大事记</div></a></li>
         <li><a v-link="{name:'work'}"><div class="index-menu-list">作品</div></a></li>
+        <li><a v-link="{name:'contact'}"><div class="index-menu-list">联系我们</div></a></li>
         <li><a v-link="{name:'join'}"><img style="width:200px;margin-left:auto;margin-right:auto;margin-top:20px" src="../assets/join.png" /> </a></li>
       </ul>
     </div>
@@ -31,7 +32,7 @@
     color: white;
     font-size: 40px;
     width: 300px;
-    margin-top: 50px;
+    margin-top: 25px;
   }
 
   .index-menu {
@@ -44,18 +45,18 @@
   .index-menu-list {
     margin-top: 20px;
     position: relative;
-    font-size: 25px;
+    font-size: 18px;
     width: 100%;
-    line-height: 1.4;
+    line-height: 2.0;
     -webkit-appearance: none;
-    border-radius: 2px;
+    border-radius: 5px;
     border: none;
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%), linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%);
-    border-left: 3px solid #00ffb8;
-    border-right: 3px solid #4ec4ce;
+    border-left: 2px solid #00ffb8;
+    border-right: 2px solid #4ec4ce;
     background-position: 0 0, 0 100%;
-    background-size: 100% 3px;
+    background-size: 100% 2px;
     background-color: transparent;
     color: white;
   }
