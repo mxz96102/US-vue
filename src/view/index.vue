@@ -12,7 +12,7 @@
         <li><a v-link="{name:'memo'}"><div class="index-menu-list">大事记</div></a></li>
         <li><a v-link="{name:'work'}"><div class="index-menu-list">作品</div></a></li>
         <li><a v-link="{name:'contact'}"><div class="index-menu-list">联系我们</div></a></li>
-        <li><a v-link="{name:'join'}"><img style="width:200px;margin-left:auto;margin-right:auto;margin-top:20px" src="../assets/join.png" /> </a></li>
+        <li><a v-link="{name:'join'}"><img style="width:120px;margin-left:auto;margin-right:auto;margin-top:20px" src="../assets/join.png" /> </a></li>
       </ul>
     </div>
 </template>
@@ -22,15 +22,15 @@
 
   .index-welcome-bar{
     background-color: #00ffb8;
-    height: 5px;
-    width: 40px;
+    height: 2px;
+    width: 20px;
   }
 
   .index-welcome{
     margin-left: auto;
     margin-right: auto;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     width: 300px;
     margin-top: 25px;
   }
@@ -45,7 +45,7 @@
   .index-menu-list {
     margin-top: 20px;
     position: relative;
-    font-size: 18px;
+    font-size: 12px;
     width: 100%;
     line-height: 2.0;
     -webkit-appearance: none;
@@ -53,10 +53,10 @@
     border: none;
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%), linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%);
-    border-left: 2px solid #00ffb8;
-    border-right: 2px solid #4ec4ce;
+    border-left: 1px solid #00ffb8;
+    border-right: 1px solid #4ec4ce;
     background-position: 0 0, 0 100%;
-    background-size: 100% 2px;
+    background-size: 100% 1px;
     background-color: transparent;
     color: white;
   }

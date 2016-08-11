@@ -82,26 +82,21 @@ export default {
 
     var num=location.hash.split('/')[2];
     num=nameMap[num];
-
-    console.log(parseInt(num));
     num=parseInt(num);
+    var numMap={
+      0:'web',
+      1:'lab',
+      2:'design',
+      3:'pm',
+      4:'android',
+      5:'ios',
+      6:'game'
+    };
     new Swiper('.swiper-container', {
       height: 600,
       pagination : '.swiper-pagination',
       initialSlide :num,
       onTransitionEnd: function(swiper){
-        console.log(swiper.activeIndex);
-
-        var numMap={
-          0:'web',
-          1:'lab',
-          2:'design',
-          3:'pm',
-          4:'android',
-          5:'ios',
-          6:'game'
-      };
-
         window.location='#!/group/'+numMap[swiper.activeIndex];
       }
     })
@@ -141,7 +136,8 @@ export default {
     height: 30px;
     margin-left: 5vw;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
   }
 
   .group-info p{
@@ -150,6 +146,7 @@ export default {
     margin-left: 5vw;
     text-align: left;
     text-indent: 2em;
+    font-size: 16px;
   }
 
 </style>

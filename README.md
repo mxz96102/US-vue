@@ -1,6 +1,6 @@
-# us_vue
+# home_page_2016_mobi
 
-> unique studio index mobi
+##unique studio 首页手机版本 2016
 
 > - start at 2016/8/4 9:21
 > - v0.0.0 at 2016/8/4 20:43 //finish the origin version
@@ -8,28 +8,34 @@
 > - v0.0.2 at 2016/8/6 23:00 //change some style, add contact page
 
 
-## Build Setup
+## 运行项目
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 在localhost:8080开始调试
 npm run dev
 
-# build for production with minification
+# 建立成品版本
 npm run build
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 部署
+``` bash
+#请使用
+npm build
 
-// make by Dominic Ming with vue.
+#生成成品后，在dist文件夹内
+#请将static文件夹部署在域名代理目录的根目录下
+
+```
+
+##修改
+```
+ #本项目是采用vue-cli的webpack版本作为源版本，请修改时候注意：
+ #1.采用ES6编写
+ #2.页面命名小写开头，组件命名开头大写
+```
+

@@ -1,6 +1,6 @@
 <template>
   <div class="join">
-    <form>
+    <form name="join_us" id="join_us">
       <h1>报名表</h1>
       <div class="input">
         <input class="input__input" type="text" name='name' placeholder="你的名字"  required="required">
@@ -21,7 +21,7 @@
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        <input class="input__input" type="text" name='contact' placeholder="备用电话"  required="required">
+        <input class="input__input" type="text" name='contact_2' placeholder="备用电话">
         <div class="input__bg"></div>
       </div>
       <div class="input">
@@ -32,9 +32,30 @@
         <input type="radio" name="group" value="6">Game策划<br /><input type="radio" name="group" value="6">Game程序
       </div><br />
       自我介绍：<br />
-      <textarea class="input__input"></textarea>
+      <textarea class="input__input" name="intro"></textarea>
 
-      <button class="input__input" onclick="return false">提交</button>
+      <button id="submit_join" class="input__input" onclick="{
+      var join_us=document.getElementById('join_us');
+      if(join_us.name.length<2){
+        alert('请填写完整的名字');
+        return false;
+      }
+      if(join_us.info.length<4){
+        alert('请填写完整的院系-专业-年级');
+        return false;
+      }
+      if(join_us.contact.length<8){
+        alert('请填写完整的电话');
+        return false;
+      }
+
+      if(join_us.contact.length<10){
+        alert('自我简介需要大于10个字');
+        return false;
+      }
+      console.log(join_us.contact);
+      return false;
+    }">提交</button>
     </form>
   </div>
 </template>
@@ -44,6 +65,8 @@ export default {
   data () {
     return {
     }
+  },
+  ready(){
   },
   name:'join'
 }
@@ -59,6 +82,7 @@ export default {
   h1{
     color: #00ffb8;
     font-weight: lighter;
+    font-size: 20px;
   }
 
   form{
@@ -81,7 +105,7 @@ export default {
 
   .input__input {
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     width: 100%;
     padding: 0.5em 0.6em;
     line-height: 1.4;
@@ -90,10 +114,10 @@ export default {
     border: none;
     background-repeat: no-repeat;
     background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
-    border-left: 2px solid #50c56c;
-    border-right: 2px solid #4ec4ce;
+    border-left: 1px solid #50c56c;
+    border-right: 1px solid #4ec4ce;
     background-position: 0 0, 0 100%;
-    background-size: 100% 2px;
+    background-size: 100% 1px;
     background-color: transparent;
     color: white;
   }
@@ -118,8 +142,8 @@ export default {
     opacity: 0;
     top: 0;
     left: 0;
-    width: 276px;
-    height: 43px;
+    width: 271px;
+    height: 38px;
     margin-top: -43px;
     background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
     transition: all 0.3s ease-out;

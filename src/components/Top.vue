@@ -76,6 +76,10 @@ export default {
     display: block;
   }
 
+.top-menu ul:hover{
+  display: block;
+}
+
   .top-menu ul{
     list-style: none;
     float: right;

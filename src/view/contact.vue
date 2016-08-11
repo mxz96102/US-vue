@@ -1,16 +1,16 @@
 <template>
   <div class="contact">
     <h1>联系我们</h1>
-    <h2>联创团队官方微信：</h2>
+    <h2>官方微信</h2>
     <p>搜索微信号：uniquestudio</p>
-    <h2>联创团队官方微博：</h2>
+    <h2>官方微博</h2>
     <p><a href="http://weibo.com/uniquestudio?refer_flag=1001030102">华中科技大学联创团队</a></p>
-    <h2>联系地址：</h2>
+    <h2>联系地址</h2>
     <p>中国湖北省武汉市洪山区<br />珞瑜路1037号华中科技大学启明学院亮胜楼8楼
       <br />8th Floor, Building LiangSheng,<br /> 1037 Luoyu Road, Wuhan 430074, P.R.China</p>
-    <h2>官方邮箱：</h2>
+    <h2>官方邮箱</h2>
     <p>hr@hustunique.com</p>
-    <h2>团队负责人：</h2>
+    <h2>团队负责人</h2>
     <p>郭 映中 / Yingzhong Guo
     <br /> +86 153-6726-9107<br />
       yingzhongguo@hustunique.com
@@ -43,6 +43,10 @@ export default {
   h1{
     color: #00ffb8;
     font-weight: lighter;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   h2{

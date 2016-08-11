@@ -1,4 +1,5 @@
 <template>
+  <h1 style="margin-bottom:20px;color:#00ffb8;margin-top:20px">团队作品</h1>
   <div class="work">
     <div class="work-icon">
       <div class="swiper-wrapper">
@@ -94,9 +95,9 @@
     color: white;
     font-weight: lighter;
     margin-top: 50px;
+    font-size: 20px;
   }
   .work{
-    margin-top: 30px;
   }
   .work-icon{
     width: 100vw;

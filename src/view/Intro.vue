@@ -32,9 +32,6 @@
           Day，连接起了当今最有想法的年轻人，</p><p>努力让极客文化传播得更广。与此同时，团队成员在校期间努力创新，推出了众多产品。</p><p>离校后，团队成员积极投身创业浪潮，成功孵化出了百纳信息技术有限公司等企业。联创团队着力打造新的联创平台，为把更多更好的学生带向自主创新之路而不懈努力。</p>
         </div>
       </div>
-      <div class="intro-contianer swiper-slide">
-
-      </div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
@@ -51,7 +48,7 @@
     ready(){
       new Swiper('.swiper-container', {
         direction : 'vertical',
-        height: 700,
+        height: 600,
         pagination : '.swiper-pagination',
         freeMode : true,
         width:300
@@ -67,6 +64,7 @@
     color: #00ffb8;
     font-weight: lighter;
     margin-top: 20px;
+    font-size: 20px;
   }
 
   .swiper-pagination{
@@ -98,7 +96,7 @@
   .intro-text {
     color: white;
     width: 300px;
-    font-size:18px;
+    font-size:15px;
 
   }
 </style>

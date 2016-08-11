@@ -61,6 +61,7 @@ export default {
     color: #00ffb8;
     font-weight: lighter;
     margin-top: 50px;
+    font-size: 20px;
   }
   .memo{
     width: 100vw;

@@ -2,7 +2,15 @@
   <div class="app">
     <Top></Top>
     <router-view></router-view>
-    <div v-if="$route.path!='/'" class="back-button" onclick="window.history.back()">←</div>
+    <div v-if="$route.path!='/'" class="back-button" onclick="window.history.back()"><svg version="1.1" class="back-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7A8783;stroke:#00FFB8;stroke-miterlimit:10;}
+  .st1{fill:none;stroke:#00FFB8;stroke-miterlimit:10;}
+</style>
+<circle id="XMLID_1_" class="st0" cx="12.5" cy="12.5" r="11"/>
+<polyline id="XMLID_12_" class="st1" points="8.5,12.6 15.5,6.7 8.5,12.6 15.5,18.4 "/>
+</svg></div>
     <h2>Copyright © 2016 Unique Studio All rights reserved</h2>
   </div>
 </template>
@@ -27,6 +35,7 @@ export default {
     margin: 0;
     padding: 0;
     list-style: none;
+    max-width: 400px;
   }
 
   h2{
@@ -49,10 +58,13 @@ export default {
 html {
   width: 100%;
   overflow-x: hidden;
+  max-width: 400px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body {
-  display: flex;
   background: url('./assets/backgroud.png') #000 ;
   background-size:100vw;
   height: 100%;
@@ -62,22 +74,15 @@ body {
 }
 
 .back-button{
-  width: 25px;
-  height: 25px;
-  border-radius: 20px;
-  background-color: #222;
-  font-size: 22px;
-  line-height: 25px;
-  color: #00ffb8;
+  width:40px;
+  height: 40px;
   filter:alpha(opacity=75);
   -moz-opacity:0.75;
   opacity: 0.75;
   position: fixed;
   bottom: 20px;
   left: 20px;
-  font-weight: lighter;
   text-align: center;
-  border: #00ffb8 1px solid;
   z-index: 10;
 }
 
