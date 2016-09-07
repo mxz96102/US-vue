@@ -4,7 +4,6 @@
         <div class="index-welcome-bar"></div>
         <p>Welcome to</p>
         <p>Unique Studio</p>
-        <p>Website</p>
       </div>
       <ul class="index-menu">
         <li><a v-link="{name:'intro'}"><div class="index-menu-list">简介</div></a></li>
@@ -12,7 +11,7 @@
         <li><a v-link="{name:'memo'}"><div class="index-menu-list">大事记</div></a></li>
         <li><a v-link="{name:'work'}"><div class="index-menu-list">作品</div></a></li>
         <li><a v-link="{name:'contact'}"><div class="index-menu-list">联系我们</div></a></li>
-        <li><a v-link="{name:'join'}"><img style="width:120px;margin-left:auto;margin-right:auto;margin-top:20px" src="../assets/join.png" /> </a></li>
+        <li><a v-link="{name:'join'}"><div class="index-menu-list">加入我们</div></a></li>
       </ul>
     </div>
 </template>
@@ -36,30 +35,31 @@
   }
 
   .index-menu {
-    width: 200px;
+    width: 250px;
     list-style: none;
     text-align: center;
-    margin: 20px auto 0 auto;
+    margin: 50px auto 0 auto;
+    background: url("../assets/index/cloud.png") center no-repeat;
   }
 
   .index-menu-list {
-    margin-top: 20px;
     position: relative;
     font-size: 12px;
-    width: 100%;
-    line-height: 2.0;
+    width: 160px;
+    line-height: 2.5;
     -webkit-appearance: none;
-    border-radius: 5px;
-    border: none;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%), linear-gradient(to right, #00ffb8 0%, #4ec4ce 100%);
-    border-left: 1px solid #00ffb8;
-    border-right: 1px solid #4ec4ce;
-    background-position: 0 0, 0 100%;
-    background-size: 100% 1px;
-    background-color: transparent;
+    border-radius: 30px;
+    border: 1px solid gray;
     color: white;
+    transition: all 0.3s ease-out;
+    margin: 20px auto 0 auto;;
   }
+
+  .index-menu-list:hover{
+    background: linear-gradient(to right, #1a7dc5 0%, #4ec4ce 100%), linear-gradient(to right, #1a7dc5 0%, #4ec4ce 100%);
+
+  }
+
 </style>
 <script>
     export default{

@@ -47,10 +47,8 @@
 
     ready(){
       new Swiper('.swiper-container', {
-        direction : 'vertical',
-        height: 600,
+        height: 700,
         pagination : '.swiper-pagination',
-        freeMode : true,
         width:300
       })
     },
@@ -67,11 +65,6 @@
     font-size: 20px;
   }
 
-  .swiper-pagination{
-    position: fixed;
-    right: 15px;
-    top: 75px;
-  }
 
   .Intro {
     width: 300px;
@@ -97,6 +90,12 @@
     color: white;
     width: 300px;
     font-size:15px;
-
+    text-indent: 2em;
   }
+
+  .swiper-pagination-bullet{
+    margin: 0 30px 0 30px !important;
+  }
+
+
 </style>

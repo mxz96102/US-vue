@@ -3,59 +3,46 @@
     <form name="join_us" id="join_us">
       <h1>报名表</h1>
       <div class="input">
-        <input class="input__input" type="text" name='name' placeholder="你的名字"  required="required">
+        <input class="input__input" type="text" name='userName' placeholder="你的名字"  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
         性别：<br /><input type="radio" name="gender" value="male">男 <br /><input type="radio" name="gender" value="female"  required="required">女
       </div>
       <div class="input">
-        宿舍：<br /><input type="radio" name="live" value="yy"  required="required">韵苑 <br /><input type="radio" name="live" value="zs">紫菘 <br /><input type="radio" name="live" value="qy">沁苑
+        宿舍：<br /><input type="radio" name="dorm" value="yy"  required="required">韵苑 <br /><input type="radio" name="dorm" value="zs">紫菘 <br /><input type="radio" name="dorm" value="qy">沁苑
       </div>
       <div class="input">
         <input class="input__input" type="text" name='info' placeholder="院系-专业-年级"  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        <input class="input__input" type="text" name="contact" placeholder="联系电话"  required="required">
+        <input class="input__input" type="text" name="phone" placeholder="联系电话"  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        <input class="input__input" type="text" name='contact_2' placeholder="备用电话">
+        <input class="input__input" type="text" name='phone_2' placeholder="备用电话(选填)">
         <div class="input__bg"></div>
       </div>
+
       <div class="input">
         报名组别：<br />
-        <input type="radio" name="group" value="0"  required="required">Web<br /> <input type="radio" name="group" value="1">Android<br />
+        <input type="radio" name="group" value="0" required="required">Web<br /> <input type="radio" name="group" value="1">Android<br />
         <input type="radio" name="group" value="2">Lab<br /><input type="radio" name="group" value="3">PM<br />
         <input type="radio" name="group" value="4">Design<br /><input type="radio" name="group" value="5">iOS<br />
-        <input type="radio" name="group" value="6">Game策划<br /><input type="radio" name="group" value="6">Game程序
-      </div><br />
+        <input type="radio" name="group" value="6">Game<br />
+      </div>
       自我介绍：<br />
       <textarea class="input__input" name="intro"></textarea>
+      <div class="input">
+        <input class="input__input" type="text" name='text' placeholder="验证码">
+        <div class="input__bg"></div>
+      </div>
+      <img id='kaptcha' src="/pil" />
 
-      <button id="submit_join" class="input__input" onclick="{
-      var join_us=document.getElementById('join_us');
-      if(join_us.name.length<2){
-        alert('请填写完整的名字');
-        return false;
-      }
-      if(join_us.info.length<4){
-        alert('请填写完整的院系-专业-年级');
-        return false;
-      }
-      if(join_us.contact.length<8){
-        alert('请填写完整的电话');
-        return false;
-      }
+      <div id="submit_join" class="input__input">提交</div>
 
-      if(join_us.contact.length<10){
-        alert('自我简介需要大于10个字');
-        return false;
-      }
-      console.log(join_us.contact);
-      return false;
-    }">提交</button>
+
     </form>
   </div>
 </template>
@@ -67,6 +54,81 @@ export default {
     }
   },
   ready(){
+    var __this=this;
+
+    var verify=document.getElementById('kaptcha');
+    verify.onclick=()=>verify.setAttribute('src','/pil?'+Math.random());
+
+
+
+    function checkJoin() {
+      var form=document.getElementById('join_us');
+
+      console.log(form.group.value);
+
+      if(form.userName.value.length<1||form.userName.value.length>6){
+        alert('姓名应该为2-6个字符');
+        return false;
+      }
+
+      if(form.info.value.length<3||form.info.value.length>9){
+        alert('院系-专业-年级应该为2-9个字符');
+        return false;
+      }
+
+      if(form.userName.value.length<1||form.userName.value.length>6){
+        alert('姓名应该为2-6个字符');
+        return false;
+      }
+      if(!(/^1[3|4|5|7|8]\d{9}$/.test(form.phone.value))){
+        alert("手机号码有误，请重填");
+        return false;
+      }
+
+      if(!(/^1[3|4|5|7|8]\d{9}$/.test(form.phone_2.value))||form.phone_2.value==''){
+        alert("备用手机号码有误，请重填");
+        return false;
+      }
+
+      if(form.getElementsByTagName('textarea')[0].value.length>1000||form.getElementsByTagName('textarea')[0].value.length<5){
+        alert("自我介绍应控制在5-1000字");
+      }
+
+      if(form.text.value.length<4||form.text.value.length>4){
+        alert('验证码应该为4个字符');
+        return false;
+      }
+
+      var bodys={
+        name :   form.userName.value ,
+        gender:  form.gender.value,
+        phone:   form.phone.value,
+        phone_2: form.phone_2.value,
+        dorm:    form.dorm.value,
+        group:   form.group.value,
+        intro:   form.intro.value,
+        info:    form.info.value,
+        text:    form.text.value
+      };
+
+      __this.$http.post('/info',bodys,{})
+        .then((response) => {
+        if(response.data.status==true){
+          alert('报名成功')
+        }else {
+          alert('验证码错误');
+        }
+          var verify=document.getElementById('kaptcha');
+          verify.setAttribute('src','/pil?'+Math.random());
+      }, (response) => {
+        alert('报名服务器错误');
+          console.log(response);
+      });
+
+    }
+
+    document.getElementById('submit_join').onclick=checkJoin;
+
   },
   name:'join'
 }
@@ -110,15 +172,9 @@ export default {
     padding: 0.5em 0.6em;
     line-height: 1.4;
     -webkit-appearance: none;
-    border-radius: 5px;
-    border: none;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
-    border-left: 1px solid #50c56c;
-    border-right: 1px solid #4ec4ce;
-    background-position: 0 0, 0 100%;
-    background-size: 100% 1px;
-    background-color: transparent;
+    border-radius: 40px;
+    border: 1px solid gray;
+    background: transparent;
     color: white;
   }
   .input__input::-webkit-input-placeholder {
@@ -143,10 +199,28 @@ export default {
     top: 0;
     left: 0;
     width: 271px;
-    height: 38px;
-    margin-top: -43px;
+    height: 40px;
+    margin-top: -40px;
     background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
     transition: all 0.3s ease-out;
+    border-radius: 40px;
+  }
+  #submit_join{
+    text-align: center;
+  }
+  textarea{
+    height: 400px;
     border-radius: 5px;
+  }
+  #kaptcha{
+    height: 40px;
+    width: auto;
+  }
+
+  input[type='radio']{
+    height: 20px;
+    width: 20px;
+    border: white 1px solid;
+    background: transparent;
   }
 </style>

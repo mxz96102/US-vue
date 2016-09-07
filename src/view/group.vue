@@ -149,4 +149,10 @@ export default {
     font-size: 16px;
   }
 
+  h1:before{
+    background-color: #00ffb8;
+    height: 2px;
+    width: 20px;
+  }
+
 </style>

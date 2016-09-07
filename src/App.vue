@@ -11,7 +11,7 @@
 <circle id="XMLID_1_" class="st0" cx="12.5" cy="12.5" r="11"/>
 <polyline id="XMLID_12_" class="st1" points="8.5,12.6 15.5,6.7 8.5,12.6 15.5,18.4 "/>
 </svg></div>
-    <h2>Copyright © 2016 Unique Studio All rights reserved</h2>
+    <h2 class='footer'>Copyright © 2016 Unique Studio All rights reserved</h2>
   </div>
 </template>
 
@@ -85,5 +85,30 @@ body {
   text-align: center;
   z-index: 10;
 }
+
+  .footer{
+    margin: 20px 0 0 0;
+  }
+
+  .swiper-pagination{
+    margin-bottom: -10px!important;
+    overflow: visible;
+  }
+
+  .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    background-color: gray;
+  }
+ .swiper-pagination-bullet-active{
+   background-color: #00ffb8;
+ }
+  .swiper-pagination:after{
+    width: 100%;
+    margin-top: -15px;
+    border-top: gray 2px solid;
+    position: relative;
+    z-index: 0;
+  }
 
 </style>
