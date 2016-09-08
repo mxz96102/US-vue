@@ -47,7 +47,7 @@
 
     ready(){
       new Swiper('.swiper-container', {
-        height: 700,
+        height: 900,
         pagination : '.swiper-pagination',
         width:300
       })
@@ -91,6 +91,10 @@
     width: 300px;
     font-size:15px;
     text-indent: 2em;
+    margin-bottom: 20px;
+  }
+  .intro-contianer,.intro-text{
+    overflow: scroll !important;
   }
 
   .swiper-pagination-bullet{

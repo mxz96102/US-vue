@@ -2,7 +2,7 @@
   <div class="app">
     <Top></Top>
     <router-view></router-view>
-    <div v-if="$route.path!='/'" class="back-button" onclick="window.history.back()"><svg version="1.1" class="back-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <div v-if="$route.path!='/'" class="back-button" ><a v-link="{name:'index'}"><svg version="1.1" class="back-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#7A8783;stroke:#00FFB8;stroke-miterlimit:10;}
@@ -10,7 +10,7 @@
 </style>
 <circle id="XMLID_1_" class="st0" cx="12.5" cy="12.5" r="11"/>
 <polyline id="XMLID_12_" class="st1" points="8.5,12.6 15.5,6.7 8.5,12.6 15.5,18.4 "/>
-</svg></div>
+</svg></a></div>
     <h2 class='footer'>Copyright © 2016 Unique Studio All rights reserved</h2>
   </div>
 </template>
@@ -99,16 +99,22 @@ body {
     width: 15px;
     height: 15px;
     background-color: gray;
+    z-index: 2;
+    position: relative;
   }
  .swiper-pagination-bullet-active{
    background-color: #00ffb8;
  }
   .swiper-pagination:after{
     width: 100%;
-    margin-top: -15px;
-    border-top: gray 2px solid;
+    margin-top: -10px;
+    border-top: rgba(12,12,12,0.6) 2px solid;
     position: relative;
     z-index: 0;
+    content: '';
+    display: block;
+    background: transparent;
+    height: 0;
   }
 
 </style>

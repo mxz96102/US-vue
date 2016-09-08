@@ -143,16 +143,11 @@ export default {
   .group-info p{
     width: 300px;
     color: white;
-    margin-left: 5vw;
+    margin: 0 auto;
     text-align: left;
     text-indent: 2em;
     font-size: 16px;
   }
 
-  h1:before{
-    background-color: #00ffb8;
-    height: 2px;
-    width: 20px;
-  }
 
 </style>

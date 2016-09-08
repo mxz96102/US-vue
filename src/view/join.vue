@@ -3,25 +3,29 @@
     <form name="join_us" id="join_us">
       <h1>报名表</h1>
       <div class="input">
-        <input class="input__input" type="text" name='userName' placeholder="你的名字"  required="required">
+        你的名字：<br />
+        <input class="input__input" type="text" name='userName' placeholder=""  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        性别：<br /><input type="radio" name="gender" value="male">男 <br /><input type="radio" name="gender" value="female"  required="required">女
+        性别：<br /><input type="radio" name="gender" value="male">男<br /> <input type="radio" name="gender" value="female"  required="required">女
       </div>
       <div class="input">
-        宿舍：<br /><input type="radio" name="dorm" value="yy"  required="required">韵苑 <br /><input type="radio" name="dorm" value="zs">紫菘 <br /><input type="radio" name="dorm" value="qy">沁苑
+        宿舍：<br /><input type="radio" name="dorm" value="yy"  required="required">韵苑<br /> <input type="radio" name="dorm" value="zs">紫菘 <br /><input type="radio" name="dorm" value="qy">沁苑
       </div>
       <div class="input">
-        <input class="input__input" type="text" name='info' placeholder="院系-专业-年级"  required="required">
+        院系-专业-年级:<br />
+        <input class="input__input" type="text" name='info' placeholder=""  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        <input class="input__input" type="text" name="phone" placeholder="联系电话"  required="required">
+        联系电话：<br />
+        <input class="input__input" type="text" name="phone" placeholder=""  required="required">
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        <input class="input__input" type="text" name='phone_2' placeholder="备用电话(选填)">
+        备用电话(选填)：<br />
+        <input class="input__input" type="text" name='phone_2' placeholder="">
         <div class="input__bg"></div>
       </div>
 
@@ -30,7 +34,7 @@
         <input type="radio" name="group" value="0" required="required">Web<br /> <input type="radio" name="group" value="1">Android<br />
         <input type="radio" name="group" value="2">Lab<br /><input type="radio" name="group" value="3">PM<br />
         <input type="radio" name="group" value="4">Design<br /><input type="radio" name="group" value="5">iOS<br />
-        <input type="radio" name="group" value="6">Game<br />
+        <input type="radio" name="group" value="6">Game<br /><br />
       </div>
       自我介绍：<br />
       <textarea class="input__input" name="intro"></textarea>
@@ -39,10 +43,7 @@
         <div class="input__bg"></div>
       </div>
       <img id='kaptcha' src="/pil" />
-
       <div id="submit_join" class="input__input">提交</div>
-
-
     </form>
   </div>
 </template>
@@ -137,21 +138,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .join{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
   }
 
   h1{
     color: #00ffb8;
     font-weight: lighter;
     font-size: 20px;
+    text-align: center;
+    margin: 0 0 20px 0;
   }
 
   form{
-    margin-left: 20px;
+
     color: #b9b9b9;
     font-size: 18px;
     width: 268px;
+    margin: 20px auto;
   }
 
   input[type=radio]{
@@ -172,8 +175,7 @@ export default {
     padding: 0.5em 0.6em;
     line-height: 1.4;
     -webkit-appearance: none;
-    border-radius: 40px;
-    border: 1px solid gray;
+    border-bottom: 1px solid gray;
     background: transparent;
     color: white;
   }
@@ -201,9 +203,8 @@ export default {
     width: 271px;
     height: 40px;
     margin-top: -40px;
-    background-image: linear-gradient(to right, #50c56c 0%, #4ec4ce 100%), linear-gradient(to right, #50c56c 0%, #4ec4ce 100%);
+    background-image: linear-gradient(to right, #01a5fa 0%, #4ec4ce 100%), linear-gradient(to right, #01a5fa 0%, #4ec4ce 100%);
     transition: all 0.3s ease-out;
-    border-radius: 40px;
   }
   #submit_join{
     text-align: center;
@@ -211,16 +212,65 @@ export default {
   textarea{
     height: 400px;
     border-radius: 5px;
+    border: 1px gray solid;
   }
   #kaptcha{
     height: 40px;
     width: auto;
+    margin: 10px auto;
+  }
+  .input{
+    margin: 15px auto 0 auto;
+  }
+  input[type='radio'] {
+    -webkit-appearance: none; /* remove default */
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+    box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+    background-color: hsla(0,0%,0%,.2);
+    background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
+    background-repeat: no-repeat;
+    -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+    -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+  }
+  input[type='radio']:checked {
+    -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+    -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+  }
+  input[type='radio']:active {
+    -webkit-transform: scale(1.5);
+    -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
   }
 
-  input[type='radio']{
-    height: 20px;
-    width: 20px;
-    border: white 1px solid;
-    background: transparent;
+  /* The up/down direction logic */
+
+  input[type='radio'][type='radio'],
+  input[type='radio'][type='radio']:active {
+    background-position: 0 24px;
+  }
+  input[type='radio'][type='radio']:checked {
+    background-position: 0 0;
+  }
+  input[type='radio']:checked ~ input[type='radio'],
+  input[type='radio']:checked ~ input[type='radio']:active {
+    background-position: 0 -24px;
+  }
+  #submit_join{
+    position: relative;
+    font-size: 12px;
+    width: 160px;
+    line-height: 2.5;
+    -webkit-appearance: none;
+    border-radius: 30px;
+    border: 1px solid gray;
+    color: white;
+    transition: all 0.3s ease-out;
+    margin: 20px auto 0 auto;;
+    background: linear-gradient(to right, #1a7dc5 0%, #4ec4ce 100%), linear-gradient(to right, #1a7dc5 0%, #4ec4ce 100%);
   }
 </style>
