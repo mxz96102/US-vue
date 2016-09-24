@@ -8,10 +8,10 @@
         <div class="input__bg"></div>
       </div>
       <div class="input">
-        性别：<br /><input type="radio" name="gender" value="male">男<br /> <input type="radio" name="gender" value="female"  required="required">女
+        性别：<br /><input type="radio" name="gender" value="1">男<br /> <input type="radio" name="gender" value="0" required="required">女
       </div>
       <div class="input">
-        宿舍：<br /><input type="radio" name="dorm" value="yy"  required="required">韵苑<br /> <input type="radio" name="dorm" value="zs">紫菘 <br /><input type="radio" name="dorm" value="qy">沁苑
+        宿舍：<br /><input type="radio" name="dorm" value="yy" required="required">韵苑<br /> <input type="radio" name="dorm" value="zs">紫菘 <br /><input type="radio" name="dorm" value="qy">沁苑
       </div>
       <div class="input">
         院系-专业-年级:<br />
@@ -38,11 +38,6 @@
       </div>
       自我介绍：<br />
       <textarea class="input__input" name="intro"></textarea>
-      <div class="input">
-        <input class="input__input" type="text" name='text' placeholder="验证码">
-        <div class="input__bg"></div>
-      </div>
-      <img id='kaptcha' src="/pil" />
       <div id="submit_join" class="input__input">提交</div>
     </form>
   </div>
@@ -57,75 +52,79 @@ export default {
   ready(){
     var __this=this;
 
-    var verify=document.getElementById('kaptcha');
-    verify.onclick=()=>verify.setAttribute('src','/pil?'+Math.random());
-
-
-
     function checkJoin() {
       var form=document.getElementById('join_us');
 
-      console.log(form.group.value);
+      function getRadio(radio){
+        for(var i=0;i<radio.length;i++){
+          if(radio[i].checked){
+            return radio[i].value
+          }
+        }
+        return ""
+      }
 
-      if(form.userName.value.length<1||form.userName.value.length>6){
-        alert('姓名应该为2-6个字符');
+
+      if(form.userName.value.length<1||form.userName.value.length>16){
+        alert('姓名应该为2-16个字符');
         return false;
       }
 
-      if(form.info.value.length<3||form.info.value.length>9){
-        alert('院系-专业-年级应该为2-9个字符');
+      if(getRadio(form.gender)==""){
+        alert("请选择性别");
         return false;
       }
 
-      if(form.userName.value.length<1||form.userName.value.length>6){
-        alert('姓名应该为2-6个字符');
+      if(form.info.value.length<2||form.info.value.length>15){
+        alert('院系-专业-年级应该为2-15个字符');
         return false;
       }
+
+      if(getRadio(form.dorm)==""){
+        alert("请选择宿舍");
+        return false;
+      }
+
       if(!(/^1[3|4|5|7|8]\d{9}$/.test(form.phone.value))){
         alert("手机号码有误，请重填");
         return false;
       }
 
-      if(!(/^1[3|4|5|7|8]\d{9}$/.test(form.phone_2.value))||form.phone_2.value==''){
-        alert("备用手机号码有误，请重填");
+      if(!(/^1[3|4|5|7|8]\d{9}$/.test(form.phone_2.value))){
+        form.phone_2.value=form.phone.value;
+      }
+
+      if(getRadio(form.group)==""){
+        alert("请选择组别");
         return false;
       }
 
       if(form.getElementsByTagName('textarea')[0].value.length>1000||form.getElementsByTagName('textarea')[0].value.length<5){
         alert("自我介绍应控制在5-1000字");
-      }
-
-      if(form.text.value.length<4||form.text.value.length>4){
-        alert('验证码应该为4个字符');
         return false;
       }
 
       var bodys={
         name :   form.userName.value ,
-        gender:  form.gender.value,
+        gender:  getRadio(form.gender),
         phone:   form.phone.value,
         phone_2: form.phone_2.value,
-        dorm:    form.dorm.value,
-        group:   form.group.value,
+        dorm:    getRadio(form.dorm),
+        group:   getRadio(form.group),
         intro:   form.intro.value,
         info:    form.info.value,
-        text:    form.text.value
       };
+
+      //console.log(bodys);
+      //alert(JSON.stringify(bodys));
 
       __this.$http.post('/info',bodys,{})
         .then((response) => {
-        if(response.data.status==true){
-          alert('报名成功')
-        }else {
-          alert('验证码错误');
-        }
-          var verify=document.getElementById('kaptcha');
-          verify.setAttribute('src','/pil?'+Math.random());
+          alert('报名成功');
       }, (response) => {
         alert('报名服务器错误');
           console.log(response);
       });
-
     }
 
     document.getElementById('submit_join').onclick=checkJoin;
@@ -215,9 +214,9 @@ export default {
     border: 1px gray solid;
   }
   #kaptcha{
-    height: 40px;
-    width: auto;
-    margin: 10px auto;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
   }
   .input{
     margin: 15px auto 0 auto;

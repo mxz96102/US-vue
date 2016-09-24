@@ -1,10 +1,10 @@
 <template>
-  <h1>简介</h1>
+  <!--<h1>简介</h1>-->
   <div class="Intro swiper-container">
     <div class="swiper-wrapper">
       <div class="intro-contianer swiper-slide">
         <div class="intro-img">
-          <img src="../assets/intro/1.jpg"/>
+          <img src="../assets/intro/1.png"/>
         </div>
         <br/>
         <div class="intro-text">
@@ -13,7 +13,7 @@
       </div>
       <div class="intro-contianer swiper-slide">
         <div class="intro-img">
-          <img src="../assets/intro/2.jpg"/>
+          <img src="../assets/intro/2.png"/>
         </div>
         <br/>
         <div class="intro-text">
@@ -24,7 +24,7 @@
       </div>
       <div class="intro-contianer swiper-slide">
         <div class="intro-img">
-          <img src="../assets/intro/3.jpg"/>
+          <img src="../assets/intro/3.png"/>
         </div>
         <br/>
         <div class="intro-text">
@@ -71,6 +71,8 @@
     margin-right: auto;
     margin-left: auto;
     margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
     height: 80vh;
   }
 
@@ -89,16 +91,27 @@
   .intro-text {
     color: white;
     width: 300px;
-    font-size:15px;
+    font-size:12px;
     text-indent: 2em;
     margin-bottom: 20px;
   }
   .intro-contianer,.intro-text{
-    overflow: scroll !important;
+    overflow-y: scroll !important;
   }
 
   .swiper-pagination-bullet{
-    margin: 0 30px 0 30px !important;
+    margin: 0 !important;
+
+  }
+
+  .intro-text:before{
+    display: block;
+    content: '';
+    background-color: #00ffb8;
+    height: 4px;
+    width: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px;
   }
 
 

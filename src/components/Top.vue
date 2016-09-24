@@ -18,8 +18,10 @@
                 <rect y="268.748" width="344.339" height="15" fill="#FFFFFF"/>
               </g>
             </g>
-          </g>        </svg>
+          </g>
+        </svg>
         <ul class="top-menu-list">
+          <div class="top-menu-tr"></div>
           <li><a v-link="{name:'index'}">首页</a></li>
           <li><a v-link="{name:'intro'}">简介</a></li>
           <li><a v-link="{name:'group',params: { name : 'web' }}">组别</a></li>
@@ -47,19 +49,20 @@ export default {
     });
 
     var __onclick=()=>{
-      var list=document.getElementsByClassName('top-menu-list')[0];
+      var list=document.getElementsByClassName('top-menu-list')[0],mask=document.getElementsByClassName('app-mask')[0];
       if(list.style.display!='none'){
         list.style.display='none';
+        mask.style.display='none';
       }else {
         list.style.display='block';
+        mask.style.display='block';
       }
     };
 
-    [document.getElementById('top-menu-logo').onclick,document.getElementsByClassName('top-menu-list')[0].onclick]=[__onclick,__onclick]
+    [document.getElementById('top-menu-logo').onclick,document.getElementsByClassName('top-menu-list')[0].onclick,document.getElementsByClassName('app-mask')[0].onclick]=[__onclick,__onclick,__onclick]
 
 
   },
-  name:'Top'
 }
 </script>
 
@@ -70,17 +73,19 @@ export default {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 50px;
+  height: 40px;
   padding: 5px;
   background: #232323;
+  z-index: 5;
 }
   .top-logo{
-    height: 50px;
+    height: 35px;
     float: left;
     margin-left: 10px;
+    margin-top: 2px;
   }
   .top-name{
-    line-height: 50px;
+    line-height: 40px;
     font-size: 18px;
     float: left;
     color: white;
@@ -112,21 +117,24 @@ export default {
     right: 10px;
     display: none;
     z-index: 5;
+    background: #8cffe1;
+    border-radius: 5px;
   }
 
+.top-menu a{
+  color: #6e6e6e;
+}
+
   .top-menu li{
-    color: white;
-    background: #161616;
+    background: transparent;
     width: 100px;
     font-size: 15px;
     height: 30px;
     line-height: 30px;
     text-align: center;
+    border-bottom: solid #56d5b4 1px;
   }
 
-.top-menu li:nth-child(2n){
-  background: #2D2D2D;
-}
 
   .top-menu li:hover{
     background: #00ffb8;
@@ -136,4 +144,13 @@ export default {
     width: 100%;
     height: 100%;
   }
+
+.top-menu-tr{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7px 6px 7px;
+  border-color: transparent transparent #8cffe0 transparent;
+  margin: -6px 0 0 60px;
+}
 </style>

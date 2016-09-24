@@ -2,6 +2,7 @@
   <div class="app">
     <Top></Top>
     <router-view></router-view>
+    <div class="app-mask"></div>
     <div v-if="$route.path!='/'" class="back-button" ><a v-link="{name:'index'}"><svg version="1.1" class="back-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
 <style type="text/css">
@@ -96,25 +97,50 @@ body {
   }
 
   .swiper-pagination-bullet{
-    width: 15px;
-    height: 15px;
-    background-color: gray;
+    width: 10px;
+    height: 10px;
+    background-color: gray !important;
     z-index: 2;
     position: relative;
+    margin-right: 20px !important;
   }
- .swiper-pagination-bullet-active{
-   background-color: #00ffb8;
- }
-  .swiper-pagination:after{
-    width: 100%;
-    margin-top: -10px;
-    border-top: rgba(12,12,12,0.6) 2px solid;
-    position: relative;
-    z-index: 0;
+
+  .swiper-pagination-bullet:last-child,.swiper-pagination-bullet:first-child{
+    background-color: white !important;
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background-color: #00ffb8 !important;
+  }
+
+  .swiper-pagination-bullet:after{
     content: '';
     display: block;
-    background: transparent;
-    height: 0;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 25px;
+    height: 1px;
+    border-top: 1px solid gray;
+    position: relative;
   }
+
+  .swiper-pagination-bullet:last-child:after{
+    content: '';
+    display: none;
+  }
+
+  .app-mask{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    float: left;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    display: none;
+  }
+
 
 </style>

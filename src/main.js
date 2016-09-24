@@ -21,35 +21,47 @@ var router=new VueRouter();
 router.map({
   '/':{
     name:'index',
-    component:index
+    component:index,
+    title:'Unique Studio '
   },
   '/intro':{
     name:'intro',
-    component:intro
+    component:intro,
+    title:'Unique Studio - 简介'
   },
   '/group/:name':{
     name:'group',
-    component:group
+    component:group,
+    title:'Unique Studio - 组别'
   },
   '/memo':{
     name:'memo',
-    component:memo
+    component:memo,
+    title:'Unique Studio - 大事记'
   },
   '/work':{
     name:'work',
-    component:work
+    component:work,
+    title:'Unique Studio - 作品'
   },
   '/join':{
     name:'join',
-    component:join
+    component:join,
+    title:'Unique Studio - 加入我们'
   },
   '/contact':{
     name:'contact',
-    component:contact
+    component:contact,
+    title:'Unique Studio - 联系我们'
   },
   '/*':{
     component:index
   }
+});
+
+router.beforeEach(transition => {
+  document.title = transition.to.title || document.title;
+  transition.next();
 });
 
 router.start(App,'#app');
